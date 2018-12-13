@@ -1,0 +1,425 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <!-- Header Section Start -->
+
+
+            <div class="search-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="content">
+                                <br>
+                                <h1>Trouvez la ménagère que vous aimeriez</h1><br><h2>Plus que <strong>12,000</strong> ménagères vous attends!</h2>
+                                <!--<form method="" action="">
+                                    <div class="row">
+                                        <!--<div class="col-md-4 col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" placeholder="Département">
+                                                <i class="ti-time"></i>
+                                            </div>
+                                        </div>-->
+                                        <!--<div class="col-md-5 col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control" style="height: 55px;" type="email" placeholder="Département">
+                                                <i class="ti-location-pin"></i>
+                                            </div>
+                                        </div>-->
+                                       <!-- <div class="col-md-5 col-sm-6">
+                                            <div class="search-category-container">
+                                                <label class="styled-select">
+                                                    <select class="dropdown-product selectpicker">
+                                                        <option>All Categories</option>
+                                                        <option>Finance</option>
+                                                        <option>IT & Engineering</option>
+                                                        <option>Education/Training</option>
+                                                        <option>Art/Design</option>
+                                                        <option>Sale/Markting</option>
+                                                        <option>Healthcare</option>
+                                                        <option>Science</option>
+                                                        <option>Food Services</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        </div>-->
+                                        <!--<div class="col-md-1 col-sm-6">
+                                            <button type="button" class="btn btn-search-icon"><i class="ti-search"></i></button>
+                                        </div>-->
+                                    <!--</div>
+                                </form>-->
+                            </div>
+                            <!--<div class="popular-jobs">
+                                <b>Popular Keywords: </b>
+                                <a href="#">Web Design</a>
+                                <a href="#">Manager</a>
+                                <a href="#">Programming</a>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end intro section -->
+    </div>
+
+
+    <!-- Infobox Section Start -->
+    <section class="infobox section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="info-text">
+                        <h2>Vous ne voulez pas manquer une chose?</h2>
+                        <p style="font-size: 20px;">Allez à <a href="#"> la recherche des employés</a></p>
+                    </div>
+                    <a href="{{ path("rechercher") }}" class="btn btn-border">Espace employeurs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Infobox Section End -->
+
+    <!-- Start Purchase Section -->
+    <section class="section purchase" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="section-content text-center">
+                    <h1 class="title-text">
+                        À la recherche d'un emploi
+                    </h1>
+                    <p>Rejoignez des milliers d'employeurs et gagnez ce que vous méritez!</p>
+                    <a href="{{ path("compte") }}" class="btn btn-common">Crée un compte</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Purchase Section -->
+
+    <!-- Featured Jobs Section Start -->
+   <!-- <section class="featured-jobs section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="featured-item">
+                        <div class="featured-wrap" style="background-color: #0b2e13;">
+                            <div class="featured-inner">
+                                <figure class="item-thumb">
+                                    <a class="hover-effect" href="job-page.html">
+                                        <img src="assets/img/features/espaceEmployeur.png" alt="">
+                                    </a>
+                                </figure>
+                                <div class="item-body">
+                                    <h3 class="job-title"><a href="job-page.html">Espace Employeur</a></h3>
+                                    <div class="adderess">
+                                        Retrouvez toutes les offres d’emploi sur votre
+                                        plateforme partout au Sénégal</div>
+                                </div>
+                            </div>
+                            <div class="item-foot">
+                                <span><i class="ti-calendar"></i> 4 months ago</span>
+                                <span><i class="ti-time"></i> Full Time</span>
+                                <div class="view-iocn">
+                                    <a href="job-page.html"><i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="featured-item">
+                        <div class="featured-wrap"  style="background-color: #080808">
+                            <div class="featured-inner">
+                                <figure class="item-thumb">
+                                    <a class="hover-effect" href="job-page.html">
+                                        <img src="assets/img/features/employer.png" alt="">
+                                    </a>
+                                </figure>
+                                <div class="item-body">
+                                    <h3 class="job-title"><a href="job-page.html">Espace Employer</a></h3>
+                                    <div class="adderess">
+                                        VOTRE ESPACE RECRUTEUR Postez vos offres sur le site .
+                                        Une base de données étendue vous permettra fera gagner du temps et de l’argent dans vos recherches.     </div>
+                                </div>
+                            </div>
+                            <div class="item-foot">
+                                <span><i class="ti-calendar"></i> 5 months ago</span>
+                                <span><i class="ti-time"></i> Part Time</span>
+                                <div class="view-iocn">
+                                    <a href="job-page.html"><i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="featured-item">
+                        <div class="featured-wrap" style="background-color: #0b2e13;">
+                            <div class="featured-inner">
+                                <figure class="item-thumb">
+                                    <a class="hover-effect" href="job-page.html">
+                                        <img src="assets/img/features/img-3.jpg" alt="">
+                                    </a>
+                                </figure>
+                                <div class="item-body">
+                                    <h3 class="job-title"><a href="job-page.html">Profil</a></h3>
+                                    <div class="adderess"><i class="ti-location-pin"></i> NY, United States</div>
+                                </div>
+                            </div>
+                            <div class="item-foot">
+                                <span><i class="ti-calendar"></i> 3 months ago</span>
+                                <span><i class="ti-time"></i> Full Time</span>
+                                <div class="view-iocn">
+                                    <a href="job-page.html"><i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+    <!-- Featured Jobs Section End -->
+
+    <!-- Category Section Start -->
+    <section class="section text-center" >
+        <div class="container">
+            <!-- Start Animations Text -->
+            <h1>
+                Qui sommes-nous?
+            </h1>
+            <br>
+            <p style="font-size:25px;">
+                Nous sommes une plateforme d'aide aux ménagères pour trouver plus facilement de l'emploie
+            </p>
+            <br>
+            <!-- End Animations Text -->
+
+            <!-- Start Buttons -->
+            <a rel="nofollow" target="_blank" href="#" class="btn btn-common btn-large">
+                <i class="fa fa-cart"></i> Nous Contacter
+            </a>
+        </div>
+        </div>
+    </section>
+    <!-- Category Section End -->
+
+    <!-- Start Purchase Section -->
+    <section class="section purchase" data-stellar-background-ratio="0.5" style='background-image: url("assets/img/slider/slide3.jpg");'>
+        <div class="container">
+            <div class="row">
+                <div class="section-content text-center">
+                    <h1 class="title-text">
+                        À la recherche de ménagère
+                    </h1>
+                    <p style="color: white;">Rejoignez d'autres chercheurs et gagnez ce que vous méritez!</p>
+                    <a href="" class="btn btn-common">Voir les profils</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Purchase Section -->
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <!-- Container Starts -->
+        <div class="container">
+            <h2 class="section-title">
+                Nos services
+            </h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog-item">
+                    <!-- Blog Item Starts -->
+                    <div class="blog-item-wrapper">
+                        <div class="blog-item-img">
+                            <a href="single-post.html">
+                                <img src="assets/img/blog/home-items/img1.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="blog-item-text">
+                            <a href="#">
+                                <h3>
+                                    Comment crée un compte
+                                </h3>
+                            </a>
+                            <p>
+                                Explication de comment s'enregistre
+                            </p>
+                            <button class="btn btn-common btn-rm">Lire plus</button>
+                        </div>
+                    </div>
+                    <!-- Blog Item Wrapper Ends-->
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog-item">
+                    <!-- Blog Item Starts -->
+                    <div class="blog-item-wrapper">
+                        <div class="blog-item-img">
+                            <a href="single-post.html">
+                                <img src="assets/img/blog/home-items/img2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="blog-item-text">
+                            <a href="#">
+                                <h3>
+                                    Comment rechercher
+                                </h3>
+                            </a>
+                            <p>
+                                Explication de comment rechercher
+                            </p>
+                            <button class="btn btn-common btn-rm">Lire plus</button>
+                        </div>
+                    </div>
+                    <!-- Blog Item Wrapper Ends-->
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog-item">
+                    <!-- Blog Item Starts -->
+                    <div class="blog-item-wrapper">
+                        <div class="blog-item-img">
+                            <a href="single-post.html">
+                                <img src="assets/img/blog/home-items/img3.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="blog-item-text">
+                            <a href="#">
+                                <h3>
+                                    Les differents profils
+                                </h3>
+                            </a>
+                            <p>
+                                Expliquer les profils
+                            </p>
+                            <button class="btn btn-common btn-rm">Lire plus</button>
+                        </div>
+                    </div>
+                    <!-- Blog Item Wrapper Ends-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- blog Section End -->
+
+    <!-- Testimonial Section Start -->
+    <section id="testimonial" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="touch-slider" class="owl-carousel owl-theme">
+                    <div class="item active text-center">
+                        <img class="img-member" src="assets/img/testimonial/img1.jpg" alt="">
+                        <div class="client-info">
+                            <h2 class="client-name">Jessica <span>(Senior Accountant)</span></h2>
+                        </div>
+                        <p><i class="fa fa-quote-left quote-left"></i> The team that was assigned to our project... were extremely professional <i class="fa fa-quote-right quote-right"></i><br> throughout the project and assured that the owner expectations were met and <br> often exceeded. </p>
+                    </div>
+                    <div class="item text-center">
+                        <img class="img-member" src="assets/img/testimonial/img2.jpg" alt="">
+                        <div class="client-info">
+                            <h2 class="client-name">John Doe <span>(Project Menager)</span></h2>
+                        </div>
+                        <p><i class="fa fa-quote-left quote-left"></i> The team that was assigned to our project... were extremely professional <i class="fa fa-quote-right quote-right"></i><br> throughout the project and assured that the owner expectations were met and <br> often exceeded. </p>
+                    </div>
+                    <div class="item text-center">
+                        <img class="img-member" src="assets/img/testimonial/img3.jpg" alt="">
+                        <div class="client-info">
+                            <h2 class="client-name">Helen <span>(Engineer)</span></h2>
+                        </div>
+                        <p><i class="fa fa-quote-left quote-left"></i> The team that was assigned to our project... were extremely professional <i class="fa fa-quote-right quote-right"></i><br> throughout the project and assured that the owner expectations were met and <br> often exceeded. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial Section End -->
+
+    <!-- Clients Section -->
+    <section class="clients section">
+        <div class="container">
+            <h2 class="section-title">
+                Nos partenaires
+            </h2>
+            <div class="row">
+                <div id="clients-scroller">
+                    <div class="items">
+                        <img src="assets/img/clients/img1.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img2.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img3.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img4.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img5.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img6.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img6.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img6.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Client Section End -->
+
+    <!-- Counter Section Start -->
+    <section id="counter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="counting">
+                        <div class="icon">
+                            <i class="ti-briefcase"></i>
+                        </div>
+                        <div class="desc">
+                            <h2>Jobs</h2>
+                            <h1 class="counter">12050</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="counting">
+                        <div class="icon">
+                            <i class="ti-user"></i>
+                        </div>
+                        <div class="desc">
+                            <h2>Members</h2>
+                            <h1 class="counter">10890</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="counting">
+                        <div class="icon">
+                            <i class="ti-write"></i>
+                        </div>
+                        <div class="desc">
+                            <h2>Resume</h2>
+                            <h1 class="counter">700</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="counting">
+                        <div class="icon">
+                            <i class="ti-heart"></i>
+                        </div>
+                        <div class="desc">
+                            <h2>Company</h2>
+                            <h1 class="counter">9050</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Counter Section End -->
+{% endblock %}

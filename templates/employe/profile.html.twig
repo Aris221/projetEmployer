@@ -1,0 +1,188 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="search-container" style="padding-top: 50px">
+        <div class="container">
+            <div class="row" style="padding-left: 50px;">
+                <h1>Trouvez la ménagère que vous aimeriez</h1><br><h2>Plus que <strong>12,000</strong> ménagères vous attends!</h2>
+                <div class="col-md-6" style="padding-left: 50px;">
+                    <div class="content">
+
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <img class="img-member img-circle" src="assets/img/testimonial/img3.jpg" alt="" style="width: 120px">
+                            </div>
+                            <div class="col-sm-8">
+                                <br>
+                                <p style="font-size: 20px"><u>Nom </u> : {{ app.user.nom|upper  }}</p>
+                                <br>
+                                <p style="font-size: 20px"> <u>Prénom </u> : {{ app.user.prenom|upper  }}</p>
+                                <br>
+                                <p style="font-size: 20px"><u>Nationalité </u> : {{ app.user.nationalite|upper  }}</p>
+                                <br>
+                                <p style="font-size: 20px"><u>Téléphone </u> : {{ app.user.username|upper  }}</p>
+                                <br>
+                                <p style="font-size: 20px"><u>Département </u> : {{ app.user.departement|upper  }}</p>
+                            </div>
+                        </div>
+                        <br>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <div class="form-group row">
+
+                                <div class="col-md-6 col-sm-3">
+                                    <a href="{{ path('admin') }}">
+                                        <button type="button"class="btn btn-success" style="padding-top: 10px;">Aller à la page Admin</button>
+                                    </a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <p style="">Renseigner des informations a propos des differents travaux que vous voullez faire</p>
+                                </div>
+                                {% if modifier == true %}
+                                    <br>
+                                    <div class="col-sm-12">
+                                        <p style="color: #104d0b">Modification effectuée</p>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <br>
+                            <div class="form-group row">
+
+                                <div class="col-md-5 col-sm-3">
+                                    <button type="button" class="btn btn-primary" onclick="toggle_div(this,'btn1');">Modifier profil</button>
+                                </div>
+                                <div class="col-md-6 col-sm-3">
+                                    <button type="button"class="btn btn-success" onclick="toggle_div(this,'btn2')"; style="padding-top: 10px;">Renseigner les informations</button>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-left: 50px;" >
+                    <div class="content" id="btn1" style="display:none;">
+                        {{ form_start(form) }}
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                {{ form_row(form.nom, {'attr': {'placeholder': 'votre nom'}}) }}
+                            </div>
+                            <div class="col-sm-6">
+                                {{ form_row(form.prenom, {'attr': {'placeholder': 'votre prenom'}}) }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-sm-5">
+                                {{ form_row(form.password.first, {'attr': {'placeholder': 'Mot de passe'}}) }}
+                            </div>
+                            <div class="col-sm-5">
+                                {{ form_row(form.password.second, {'attr': {'placeholder': 'Confirmer'}}) }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-sm-5">
+                                {{ form_row(form.nationalite, {'attr': {'placeholder': 'Nationalité'}}) }}
+                            </div>
+                            <div class="col-sm-5">
+                                {{ form_row(form.username, {'attr': {'placeholder': 'Téléphone'}}) }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-sm-5">
+                                {{ form_row(form.departement, {'attr': {'placeholder': 'Département'}}) }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <center>
+                                <div class="col-md-12 col-sm-6">
+                                    <button type="submit" class="btn btn-primary">Valider</button>
+                                </div>
+                            </center>
+
+
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                    <div class="content" id="btn2" style="display:none;">
+                        {{ form_start(form_info) }}
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                {{ form_row(form_info.adresse, {'attr': {'placeholder': 'votre nom'}}) }}
+                            </div>
+                            <div class="col-sm-6">
+                                {{ form_row(form_info.age, {'attr': {'placeholder': 'votre prenom'}}) }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                                {{ form_row(form_info.niveauEtude, {'attr': {'placeholder': 'Téléphone'}}) }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <!--<div class="col-sm-5">
+                                { #form_row(form_info.employer, {'attr': {'placeholder': 'Mot de passe'}}) #}
+                            </div>-->
+                            <div class="col-sm-5">
+                                <label style="background-color: white; height: 25px; color: white;">{{ form_label(form_info.langue) }}</label>
+                                {{ form_widget(form_info.langue) }}
+                            </div>
+                            <div class="col-sm-7">
+                                <label style="background-color: white; height: 25px; color: white;">{{ form_label(form_info.Sm) }}</label>
+                                {{ form_widget(form_info.Sm) }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-sm-5">
+                                <label style="background-color: white; height: 25px; color: white;">{{ form_label(form_info.travaille) }}</label>
+                                {{ form_widget(form_info.travaille) }}
+                            </div>
+                            <div class="col-sm-5">
+                                <label style="background-color: white; height: 25px; color: white;">{{ form_label(form_info.ceremonie) }}</label>
+                                {{ form_widget(form_info.ceremonie) }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-sm-7">
+                                {{ form_row(form_info.typeHeure, {'attr': {'placeholder': 'Département'}}) }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <center>
+                                <div class="col-md-12 col-sm-6">
+                                    <button type="submit" class="btn btn-primary">Valider</button>
+                                </div>
+                            </center>
+
+
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+        </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function toggle_div(bouton, id) { // On déclare la fonction toggle_div qui prend en param le bouton et un id
+            var div = document.getElementById(id); // On récupère le div ciblé grâce à l'id
+            if(div.style.display=="none") { // Si le div est masqué...
+                div.style.display = "block"; // ... on l'affiche...
+                //bouton.innerHTML = "-"; // ... et on change le contenu du bouton.
+            } else { // S'il est visible...
+                div.style.display = "none"; // ... on le masque...
+                //bouton.innerHTML = "+"; // ... et on change le contenu du bouton.
+            }
+        }
+    </script>
+
+{% endblock %}

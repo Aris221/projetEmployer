@@ -1,0 +1,67 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="search-container" style="padding-top: 50px">
+        <div class="container">
+            <div class="row" style="padding-left: 50px;">
+                <h1>Trouvez la ménagère que vous aimeriez</h1><br><h2>Plus que <strong>12,000</strong> ménagères vous attends!</h2>
+                <div class="col-md-6" style="padding-left: 50px;">
+                    <div class="content">
+                        {% if compte == true %}
+                            <div class="form-group row">
+                                <div class="col-sm-9">
+                                    Compte crée <a href="{{ path('login') }}" style="color: white;">connecter vous</a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <h2 style="">Créer votre compte</h2>
+                            {{ form_start(form) }}
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    {{ form_row(form.nom, {'attr': {'placeholder': 'votre nom'}}) }}
+                                </div>
+                                <div class="col-sm-6">
+                                    {{ form_row(form.prenom, {'attr': {'placeholder': 'votre prenom'}}) }}
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row">
+                                <div class="col-sm-5">
+                                    {{ form_row(form.password.first, {'attr': {'placeholder': 'Mot de passe'}}) }}
+                                </div>
+                                <div class="col-sm-5">
+                                    {{ form_row(form.password.second, {'attr': {'placeholder': 'Confirmer'}}) }}
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row">
+                                <div class="col-sm-5">
+                                    {{ form_row(form.nationalite, {'attr': {'placeholder': 'Nationalité'}}) }}
+                                </div>
+                                <div class="col-sm-5">
+                                    {{ form_row(form.username, {'attr': {'placeholder': 'Votre Téléphone'}}) }}
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row">
+                                <div class="col-sm-5">
+                                    {{ form_row(form.departement, {'attr': {'placeholder': 'Département'}}) }}
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row">
+                                <center>
+                                    <div class="col-md-12 col-sm-6">
+                                        <button type="submit" class="btn btn-primary">Valider</button>
+                                    </div>
+                                </center>
+                            </div>
+                            {{ form_end(form) }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

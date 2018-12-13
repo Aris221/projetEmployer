@@ -1,0 +1,13 @@
+easy_admin:
+    entities:
+        # List the entity class name you want to manage
+#        - App\Entity\Employe
+#        - App\Entity\Information
+        - App\Entity\Travaille
+        - App\Entity\Ceremonie
+        - App\Entity\Langue
+        - App\Entity\NiveauEtude
+        - App\Entity\TypeHeure
+        - App\Entity\Nationalite
+        - App\Entity\Departement
+        - App\Entity\Enregistre

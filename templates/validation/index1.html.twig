@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="search-container" style="padding-top: 50px">
+        <div class="container">
+            <div class="row" style="padding-left: 50px;">
+                <h1>Trouvez la ménagère que vous aimeriez</h1><br><h2>Plus que <strong>12,000</strong> ménagères vous attends!</h2>
+                <div class="col-md-6" style="padding-left: 50px;">
+                    <div class="content">
+                        {% if valider == true %}
+                            <div class="form-group row">
+                                <div class="col-sm-9">
+                                    ENregistrement valider nus vons contacterons bientôt
+                                </div>
+                            </div>
+                        {% else %}
+                            <h2 style="">Créer votre compte</h2>
+                            {{ form_start(form) }}
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    {{ form_row(form.nom, {'attr': {'placeholder': 'votre nom'}}) }}
+                                </div>
+                                <div class="col-sm-6">
+                                    {{ form_row(form.prenom, {'attr': {'placeholder': 'votre prenom'}}) }}
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row">
+                                <div class="col-sm-5">
+                                    {{ form_row(form.telephone, {'attr': {'placeholder': 'Nationalité'}}) }}
+                                </div>
+                                <div class="col-sm-5">
+                                    {{ form_row(form.email, {'attr': {'placeholder': 'Votre Téléphone'}}) }}
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row">
+                                <center>
+                                    <div class="col-md-12 col-sm-6">
+                                        <button type="submit" class="btn btn-primary">Valider</button>
+                                    </div>
+                                </center>
+                            </div>
+                            {{ form_end(form) }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

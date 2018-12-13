@@ -1,0 +1,405 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <!-- Header Section Start -->
+
+
+    <div class="search-container">
+        <div class="container">
+            <div class="row">
+                <h1>Trouvez la ménagère que vous aimeriez</h1><br><h2>Plus que <strong>12,000</strong> ménagères vous attends!</h2>
+                <div class="col-md-5">
+                    <div class="content">
+                        {{ form_start(form) }}
+                            <div class="row">
+                                <div class="col-md-9 col-sm-10">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            {{ form_row(form.nonTravaille, {'attr': {'placeholder': 'votre nom'}}) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-6">
+                                    <button type="submit" class="btn btn-search-icon"><i class="ti-search"></i></button>
+                                </div>
+                            </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="content">
+                        {{ form_start(form_d) }}
+                        <div class="row">
+                            <div class="col-md-9 col-sm-10" >
+                                <div class="search-category-container" id="btn1" style="display:block;">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            {{ form_row(form_d.nonDepartement, {'attr': {'placeholder': 'votre nom'}}) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-6">
+                                <button type="submit" class="btn btn-search-icon"><i class="ti-search"></i></button>
+                            </div>
+                        </div>
+                        {{ form_end(form_d) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-- end intro section -->
+    </div>
+
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <!-- Container Starts -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <h2 class="section-title">
+                            Liste des employés
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% if t == null %}
+                    {% for info in infos %}
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog-item">
+                            <!-- Blog Item Starts -->
+                            <div class="blog-item-wrapper">
+                                <div class="col-sm-6">
+                                    <div class="blog-item-img">
+                                        <a href="#">
+                                            <img class="img-member img-circle" src="assets/img/blog/home-items/img1.jpg" alt="" width="200px;">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="blog-item-text">
+                                    <div class="meta-tags">
+                                        <font size="4px"><u>Nom </u> : {{info.employer.nom|upper  }}</font><br>
+                                        <font size="4px"><u>Prénom </u> : {{info.employer.prenom|upper  }}</font><br>
+                                        <font size="4px"><u>Adresse </u> : {{ info.adresse }}</font><br>
+                                        <font size="4px">
+                                            <u>Travaille à faire :</u><br>
+                                            <font style="color: red;">
+                                                {% for travaille in info.travaille  %}
+                                                    {{ travaille.nonTravaille }},
+                                                {% endfor %}
+                                            </font>
+                                        </font><br>
+                                        <font size="4px">
+                                            <u>Cérémonie:</u><br>
+                                            <font style="color: red;">
+                                                {% for ceremonie in info.ceremonie   %}
+                                                    {{ ceremonie.nomCeremonie }},
+                                                {% endfor %}
+                                            </font>
+                                        </font><br>
+                                        <font size="4px">
+                                            <u>Mode</u> : <font style="color: red;">{{ info.typeHeure.nonType }}</font>
+                                        </font>
+                                        <br>
+                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{ info.employer.id }}">Lire plus</button>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{ info.employer.username }}">Choisir</button>
+
+                                        <!-- Modal -->
+                                        <div id="{{ info.employer.id }}" class="modal fade" role="dialog">
+                                            <div class="modal-dialog">
+
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">Contacter nous</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p style="font-size: 25px">
+                                                            <u>Nom </u> : {{info.employer.nom|upper  }}
+                                                            &ensp;  &ensp;  &ensp;  &ensp;  &ensp;  &ensp;
+                                                            <u>Prénom </u> : {{info.employer.prenom|upper  }}
+                                                        </p>
+                                                        <p style="font-size: 25px">
+                                                            <u>Situation matrimoniale </u> : {{ info.sm.nonSm }}
+                                                        </p>
+                                                        <p style="font-size: 25px">
+                                                            <u>Niveau d'étude </u> : {{ info.niveauEtude.nonNiveau }}
+                                                        </p>
+                                                        <p style="font-size: 25px">
+                                                            <u>Département </u> : {{info.employer.departement|upper  }}
+                                                            &ensp;
+                                                            <u>Age </u> : {{ info.age }}
+                                                        </p>
+                                                        <p style="font-size: 25px"><u>Nationalité </u> {{ info.employer.nationalite|upper }}</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Modal -->
+                                        <div id="{{ info.employer.username }}" class="modal fade" role="dialog">
+                                            <div class="modal-dialog">
+
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">Contacter nous</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                            <p style="font-size: 15px">
+                                                                <input type="checkbox"><label>Confirmer le choix</label>
+                                                            </p>
+                                                            <p style="font-size: 25px">
+                                                                <a href="{{ path('validation',{'id': info.employer.id}) }}" class="btn btn-primary">
+                                                                    Valider
+                                                                </a>
+                                                            </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Modale -->
+                                    </div>
+                                    <!--<a href="single-post.html" class="btn btn-common btn-rm">Lire plus</a>-->
+                                </div>
+                            </div>
+                            <!-- Blog Item Wrapper Ends-->
+                        </div>
+                    {% endfor %}
+                {% elseif t != null %}
+                    {% set trouve = false %}
+                    {% set employe = {} %}
+                     {% for info in infos %}
+                        {% for travaille in info.travaille %}
+                                {% if travaille.nonTravaille == t %}
+                                    {% set trouve = true %}
+                                    {% set employe = employe|merge({(info.id):(info)}) %}
+                                {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                    {% if trouve == true %}
+                        {% for key,info in employe %}
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 blog-item">
+                                <!-- Blog Item Starts -->
+                                <div class="blog-item-wrapper">
+                                    <div class="col-sm-6">
+                                        <div class="blog-item-img">
+                                            <a href="#">
+                                                <img class="img-member img-circle" src="assets/img/blog/home-items/img1.jpg" alt="" width="200px;">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="blog-item-text">
+                                        <div class="meta-tags">
+                                            <font size="2px"><u>Nom </u> : {{info.employer.nom|upper  }}</font><br>
+                                            <i style="font-size: 15px"><u>Prénom </u> : {{info.employer.prenom|upper  }}</i><br>
+                                            <i style="font-size: 15px"><u>Adresse </u> : {{ info.adresse }}</i><br>
+                                            <i style="font-size: 15px">
+                                                <u>Travaille à faire :</u><br>
+                                                <font style="color: red;">
+                                                    {% for travaille in info.travaille  %}
+                                                        {{ travaille.nonTravaille }},
+                                                    {% endfor %}
+                                                </font>
+                                            </i><br>
+                                            <i style="font-size: 15px">
+                                                <u>Cérémonie:</u><br>
+                                                <font style="color: red;">
+                                                    {% for ceremonie in info.ceremonie   %}
+                                                        {{ ceremonie.nomCeremonie }},
+                                                    {% endfor %}
+                                                </font>
+                                            </i><br>
+                                            <i style="font-size: 15px">
+                                                <u>Mode</u> : <font style="color: red;">{{ info.typeHeure.nonType }}</font>
+                                            </i>
+
+                                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{ info.employer.username }}">Lire plus</button>
+
+                                            <!-- Modal -->
+                                            <div id="{{ info.employer.username }}" class="modal fade" role="dialog">
+                                                <div class="modal-dialog">
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title">Contacter nous</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p style="font-size: 25px">
+                                                                <u>Nom </u> : {{info.employer.nom|upper  }}
+                                                                &ensp;  &ensp;  &ensp;  &ensp;  &ensp;  &ensp;
+                                                                <u>Prénom </u> : {{info.employer.prenom|upper  }}
+                                                            </p>
+                                                            <p style="font-size: 25px">
+                                                                <u>Situation matrimoniale </u> : {{ info.sm.nonSm }}
+                                                            </p>
+                                                            <p style="font-size: 25px">
+                                                                <u>Niveau d'étude </u> : {{ info.niveauEtude.nonNiveau }}
+                                                            </p>
+                                                            <p style="font-size: 25px">
+                                                                <u>Département </u> : {{info.employer.departement|upper  }}
+                                                                &ensp;
+                                                                <u>Age </u> : {{ info.age }}
+                                                            </p>
+                                                            <p style="font-size: 25px"><u>Nationalité </u> {{ info.employer.nationalite|upper }}</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!--<a href="single-post.html" class="btn btn-common btn-rm">Lire plus</a>-->
+                                    </div>
+                                </div>
+                                <!-- Blog Item Wrapper Ends-->
+                            </div>
+                         {% endfor %}
+                    {% else %}
+                        <p>Pas de menagère trouver</p>
+                    {% endif %}
+                {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- blog Section End -->
+    <!-- Testimonial Section Start -->
+    <section id="testimonial" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="touch-slider" class="owl-carousel owl-theme">
+                    <div class="item active text-center">
+                            <img class="img-member" src="assets/img/testimonial/img1.jpg" alt="">
+                        <div class="client-info">
+                            <h2 class="client-name">Jessica <span>(Senior Accountant)</span></h2>
+                        </div>
+                        <p><i class="fa fa-quote-left quote-left"></i> The team that was assigned to our project... were extremely professional <i class="fa fa-quote-right quote-right"></i><br> throughout the project and assured that the owner expectations were met and <br> often exceeded. </p>
+                    </div>
+                    <div class="item text-center">
+                        <img class="img-member" src="assets/img/testimonial/img2.jpg" alt="">
+                        <div class="client-info">
+                            <h2 class="client-name">John Doe <span>(Project Menager)</span></h2>
+                        </div>
+                        <p><i class="fa fa-quote-left quote-left"></i> The team that was assigned to our project... were extremely professional <i class="fa fa-quote-right quote-right"></i><br> throughout the project and assured that the owner expectations were met and <br> often exceeded. </p>
+                    </div>
+                    <div class="item text-center">
+                        <img class="img-member" src="assets/img/testimonial/img3.jpg" alt="">
+                        <div class="client-info">
+                            <h2 class="client-name">Helen <span>(Engineer)</span></h2>
+                        </div>
+                        <p><i class="fa fa-quote-left quote-left"></i> The team that was assigned to our project... were extremely professional <i class="fa fa-quote-right quote-right"></i><br> throughout the project and assured that the owner expectations were met and <br> often exceeded. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial Section End -->
+
+    <!-- Clients Section -->
+    <section class="clients section">
+        <div class="container">
+            <h2 class="section-title">
+                Clients & Partners
+            </h2>
+            <div class="row">
+                <div id="clients-scroller">
+                    <div class="items">
+                        <img src="assets/img/clients/img1.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img2.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img3.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img4.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img5.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img6.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img6.png" alt="">
+                    </div>
+                    <div class="items">
+                        <img src="assets/img/clients/img6.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Client Section End -->
+
+    <!-- Counter Section Start -->
+    <section id="counter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="counting">
+                        <div class="icon">
+                            <i class="ti-briefcase"></i>
+                        </div>
+                        <div class="desc">
+                            <h2>Jobs</h2>
+                            <h1 class="counter">12050</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="counting">
+                        <div class="icon">
+                            <i class="ti-user"></i>
+                        </div>
+                        <div class="desc">
+                            <h2>Members</h2>
+                            <h1 class="counter">10890</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="counting">
+                        <div class="icon">
+                            <i class="ti-write"></i>
+                        </div>
+                        <div class="desc">
+                            <h2>Resume</h2>
+                            <h1 class="counter">700</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="counting">
+                        <div class="icon">
+                            <i class="ti-heart"></i>
+                        </div>
+                        <div class="desc">
+                            <h2>Company</h2>
+                            <h1 class="counter">9050</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Counter Section End -->
+{% endblock %}

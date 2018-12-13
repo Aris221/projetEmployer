@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Job site{% endblock %}</title>
+    {% block stylesheets %}
+        <!-- <link rel="stylesheet" href="{{ asset("build/css/app.css") }}">-->
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="assets/img/favicon.png">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="build/css/new.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/jasny-bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/bootstrap-select.min.css" type="text/css">
+        <!-- Material CSS -->
+        <link rel="stylesheet" href="assets/css/material-kit.css" type="text/css">
+        <!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="assets/fonts/themify-icons.css">
+
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="assets/extras/animate.css" type="text/css">
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="assets/extras/owl.carousel.css" type="text/css">
+        <link rel="stylesheet" href="assets/extras/owl.theme.css" type="text/css">
+        <!-- Rev Slider CSS -->
+        <link rel="stylesheet" href="assets/extras/settings.css" type="text/css">
+        <!-- Slicknav js -->
+        <link rel="stylesheet" href="assets/css/slicknav.css" type="text/css">
+        <!-- Main Styles -->
+        <link rel="stylesheet" href="assets/css/main.css" type="text/css">
+        <!-- Responsive CSS Styles -->
+        <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
+
+        <!-- Color CSS Styles  -->
+        <link rel="stylesheet" type="text/css" href="assets/css/colors/red.css" media="screen" />
+
+    {% endblock %}
+</head>
+<body>
+<br><br><br><br><br><br><br>
+<div class="container">
+    <center>
+        <div class="row col-lg-12 col-lg-offset-3">
+            <div class="well well-lg col-lg-6">
+                <div class="panel panel-default" >
+                    <div class="panel-heading">
+                        <h2>Connexion</h2>
+                    </div>
+                    <div class="panel-body">
+                       <!-- <form action="" method="post">
+                            <label for="username">Identifiant:</label>
+                            <input type="text" id="username" name="_username" value=" />
+
+                            <label for="password">Mot de passe:</label>
+                            <input type="password" id="password" name="_password" />
+
+                            {#
+                                If you want to control the URL the user
+                                is redirected to on success (more details below)
+                                <input type="hidden" name="_target_path" value="/account" />
+                            #}
+
+                            <button type="submit" >Connecter</button>-->
+                        <form class="form-horizontal" role="form" action="{{ path('login') }}" method="post">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-3 control-label">
+                                    N° Téléphone </label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" name="_username" id="inputEmail3" placeholder="Votre numero de téléphone" required="" type="text" value="{{ last_username }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-3 control-label">
+                                    Mot de passe</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" name="_password" id="inputPassword3" placeholder="Votre mot de passe" required="" type="password">
+                                </div>
+                            </div>
+                            {% if error %}
+                            <p style="color:red;">{{ "Mot de passe ou identifiant inccorect" }}</p>
+                            {% endif %}
+                            {% if error %}
+                                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+
+                            <div class="form-group last">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button type="submit" class="btn btn-success btn-sm">
+                                        Connecter</button>
+                                    <!--<button type="reset" class="btn btn-default btn-sm">
+                                        Annuler</button>-->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        Pas de compte? <a href="{{ path('compte') }}">Créer un compte</a>
+                    </div>
+                    <div class="panel-footer">
+                       <a href="{{ path('homepage') }}"> Aller à l'accceuil </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+</div>
+
+<!-- Go To Top Link -->
+<a href="#" class="back-to-top">
+    <i class="ti-arrow-up"></i>
+</a>
+
+<!--<div id="loading">
+    <div id="loading-center">
+        <div id="loading-center-absolute">
+            <div class="object" id="object_one"></div>
+            <div class="object" id="object_two"></div>
+            <div class="object" id="object_three"></div>
+            <div class="object" id="object_four"></div>
+            <div class="object" id="object_five"></div>
+            <div class="object" id="object_six"></div>
+            <div class="object" id="object_seven"></div>
+            <div class="object" id="object_eight"></div>
+        </div>
+    </div>
+</div>-->
+
+
+
+    {% block javascripts %}
+        <!-- <script src="{{ asset("build/js/app.js") }}"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+            -->
+        <!-- Main JS  -->
+        <script type="text/javascript" src="assets/js/jquery-min.js"></script>
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/js/material.min.js"></script>
+        <script type="text/javascript" src="assets/js/material-kit.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.parallax.js"></script>
+        <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.slicknav.js"></script>
+        <script type="text/javascript" src="assets/js/main.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.counterup.min.js"></script>
+        <script type="text/javascript" src="assets/js/waypoints.min.js"></script>
+        <script type="text/javascript" src="assets/js/jasny-bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/js/bootstrap-select.min.js"></script>
+        <script type="text/javascript" src="assets/js/form-validator.min.js"></script>
+        <script type="text/javascript" src="assets/js/contact-form-script.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.themepunch.tools.min.js"></script>
+    {% endblock %}
+</body>
+</html>
